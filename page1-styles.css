@@ -1,0 +1,98 @@
+/* Background image */
+.event-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 2rem;
+        }
+.event {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 1rem;
+            margin: 1rem;
+            flex: 1;
+            max-width: 400px; /* Adjust the maximum width to fit the video */
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .event:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+.dashboard-background {
+   /* Replace 'your-background-image.jpg' with the path to your background image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Dashboard header styles */
+.dashboard-header {
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background to make text more readable */
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.company-name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Center align the greeting */
+.greeting {
+  font-size: 24px;
+  font-weight: bold;
+  font-family: "Arial", sans-serif;
+  text-align: center;
+}
+
+.points {
+  font-size: 24px;
+  font-family: "Arial", sans-serif;
+  font-weight: bold;
+}
+
+.logout {
+  font-family: "Arial", sans-serif;
+}
+
+.logout button {
+  font-size: 18px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.logout button:hover {
+  background-color: #555;
+}
+
+/* Button styles */
+.button {
+  font-size: 25px; /* Increase the font size more vertically */
+  background-color: #5cb874; /* Change the button background color */
+  color: #fff;
+  border: none;
+  padding: 5px 35px; /* Decrease the button size horizontally and increase it vertically */
+  border-radius: 10px; /* Increase border-radius for rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 5px; /* Add some margin between buttons */
+  text-decoration: none; /* Remove default link underline */
+  float: right; /* Align buttons to the right */
+}
+
+.button:hover {
+  background-color: #ff4500; /* Change the button background color on hover */
+}

@@ -1,0 +1,150 @@
+/* Reset default margin and padding */
+body, h1, h2, h3, p, span, a, img {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  
+  /* Set a background color and text color */
+  body {
+    color: #333;
+    font-family: Arial, sans-serif;
+    background-color: #5cb874;
+  }
+  /* ... previous styles ... */
+.header{
+  margin-bottom: 1px solid #5cb874;
+}
+/* Dashboard header styles */
+.dashboard-header {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+  }
+  
+  .company-name {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  
+  .greeting {
+    font-size: 24px; /* Increase the font size */
+    font-weight: bold;
+    font-family: "Arial", sans-serif; /* Specify a better font */
+  }
+  
+  .points {
+    font-size: 24px; /* Increase the font size */
+    font-family: "Arial", sans-serif;
+    font-weight: bold; /* Specify a better font */
+  }
+  
+  .logout {
+    font-family: "Arial", sans-serif; /* Specify a better font */
+  }
+  
+  .logout button {
+    font-size: 18px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .logout button:hover {
+    background-color: #555;
+  }
+  
+  /* ... remaining styles ... */
+  
+  
+  
+  
+  /* Dashboard content styles */
+  /* ... previous styles ... */
+
+/* Dashboard content styles */
+/* Dashboard content styles */
+.dashboard-content {
+    padding: 40px; /* Increase padding for better spacing */
+    text-align: center;
+    background-color: #5cb874;
+  }
+  
+  .contact{
+    border: 5px solid #5cb874;
+    text-align: center;
+  }
+
+  .dashboard-links {
+    display: flex;
+    justify-content: center; /* Center the images horizontally */
+    align-items: center;
+    gap: 40px; /* Increase the gap between images */
+    margin-top: 20px;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+  }
+  
+  .dashboard-links a {
+    display: inline-block;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px; /* Increase the border-radius */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Adjust the box shadow */
+    transition: transform 0.3s, filter 0.3s, box-shadow 0.3s;
+    margin-bottom: 20px; /* Increase distance between boxes */
+    width: 250px; /* Increase the box width */
+    height: 450px; /* Increase the box height */
+  }
+  
+  .dashboard-links a img {
+    width: 100%; /* Make the image fill the box */
+    height: 100%; /* Make the image fill the box */
+    object-fit: cover; /* Maintain aspect ratio */
+    border-radius: 20px; /* Match the border-radius */
+    transition: transform 0.3s, filter 0.3s, opacity 0.3s; /* Added opacity transition */
+    
+  }
+  
+  /* ... remaining styles ... */
+  
+  .dashboard-links a:hover img {
+    transform: scale(1.1);
+    filter: brightness(70%);
+    opacity: 0.7; /* Reduce the opacity of the image when hovered */
+  }
+  
+  .link-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    pointer-events: none; /* Prevent the overlay from blocking hover */
+    opacity: 0;
+    transform: translateY(100%); /* Move the overlay off the screen initially */
+  }
+  
+  .dashboard-links a:hover .link-overlay {
+    opacity: 1;
+    transform: translateY(0); /* Move the overlay onto the image */
+  }

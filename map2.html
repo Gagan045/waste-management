@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Optimized Route</title>
+    <link href="assets\waste (1).png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link rel="stylesheet" href="dashboard-styles.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css' />
+    <style>
+        html,
+        body {
+            height: 100%;
+            background-color: #5cb874;
+        }
+
+        form {
+            padding: 10px;
+            height: auto;
+            width: 750px;
+            text-align: center;
+            border: 3px solid black;
+            margin-top: 10px;
+            margin-left: 350px;
+        }
+
+        input {
+            margin: auto;
+            padding: auto;
+        }
+
+        #map {
+            height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <header id="header" class="d-flex align-items-center">
+            <div class="container d-flex align-items-center">
+                <h1 class="logo me-auto"><a href="index.php">Ecovision</a></h1>
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+                <nav id="navbar" class="navbar">
+                    <ul>
+                        <li><a class="getstarted scrollto" href="index.php">Log Out</a></li>
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav>
+            </div>
+        </header>
+    </div>
+
+    <form>
+        <div id="inputFields">
+            <input type="text" name="array[]" placeholder="Latitude" />
+            <input type="text" name="array[]" placeholder="Longitude" />
+            <input type="text" name="array[]" placeholder="Trash Bin" /><br>
+        </div>
+        <div>
+            <button type="button" onclick="addInputFields()">Add Input</button>
+        </div>
+        <div>
+            <button type="button" onclick="Geeks()">Submit</button>
+        </div>
+    </form>
+    <div id='map'></div>
+    <script type='text/javascript'
+        src='http://www.bing.com/api/maps/mapcontrol?key=Ag_Wz2VQgL7HCGsMfUDp033I6WiOiY_yJMBRpErPlBif3v4RCGIDbpx4RybuTtLi'></script>
+    <script>
+        function Geeks() {
+            var inputs = document.getElementsByName('array[]');
+            var valuesArray = [[17.520992, 78.367268]];
+
+            for (var i = 0; i < inputs.length; i += 3) {
+                var value1 = inputs[i].value;
+                var value2 = inputs[i + 1].value;
+                var value3 = inputs[i + 2].value;
+
+                // Check if the third element is above 80 before adding to the array
+                if (parseFloat(value3) > 80) {
+                    valuesArray.push([parseFloat(value1), parseFloat(value2)]);
+                }
+            }
+
+            // Display the array
+            map(valuesArray);
+        }
+
+        function addInputFields() {
+            var div = document.getElementById('inputFields');
+            var input1 = document.createElement('input');
+            var input2 = document.createElement('input');
+            var input3 = document.createElement('input');
+
+            input1.type = 'text';
+            input1.name = 'array[]';
+            input1.placeholder = 'Latitude';
+
+            input2.type = 'text';
+            input2.name = 'array[]';
+            input2.placeholder = 'Longitude';
+
+            input3.type = 'text';
+            input3.name = 'array[]';
+            input3.placeholder = 'Trash Bin';
+
+            div.appendChild(input1);
+            div.appendChild(input2);
+            div.appendChild(input3);
+            div.appendChild(document.createElement('br'));
+        }
+
+        function map(valuesArray) {
+            var map = new Microsoft.Maps.Map('#map', {
+                credentials: 'Ag_Wz2VQgL7HCGsMfUDp033I6WiOiY_yJMBRpErPlBif3v4RCGIDbpx4RybuTtLi'
+            });
+
+            for (var i = 0; i < valuesArray.length; i++) {
+                var pin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(valuesArray[i][0], valuesArray[i][1]));
+                map.entities.push(pin);
+            }
+
+            // Fit the map to the bounds of all the pushpins
+            if (valuesArray.length > 0) {
+                var bounds = Microsoft.Maps.LocationRect.fromLocations(valuesArray.map(function (location) {
+                    return new Microsoft.Maps.Location(location[0], location[1]);
+                }));
+                map.setView({ bounds: bounds });
+            }
+        }
+    </script>
+</body>
+
+</html>
