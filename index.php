@@ -130,7 +130,7 @@
         </div>
 
       </div>
-    </section>
+</section>
     <section id="contact" class="contact">
       <div class="container" id="cont">
 
